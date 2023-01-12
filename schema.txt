@@ -1,0 +1,23 @@
+
+
+table 1 
+uuid uuid 
+name string
+login string
+password - hashedpassword string 
+status "Admin", "Boss", "Regular" 
+bossuuid uuid
+
+table 2 
+id uuid
+subordinates [uuid,...]
+
+
+
+1. Register user - post /register body:{name, status, BossName, login, password}
+2. Authenticate as a user - post /login body:{login, password}
+3. Return list of users, taking into account the following: get /list-users header:token
+- administrator should see everyone 
+- boss should see herself and all subordinates (recursively)
+- regular user can see only herself
+4. Change user's boss (only boss can do that and only for her subordinates) put /change-boss header:token body:{useruuid, bossuuid}
