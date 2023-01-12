@@ -15,9 +15,13 @@ Table 2
 When server starts, tables are created if they were not existed. Database is assumed to exist. 
 
 Following endpoins are developed:
+
 1. User registration
+
   endpoint - /register
+  
   method - post
+  
   body - {
       name, 
       status, - "Boss" or "Regular"
